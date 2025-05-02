@@ -1,24 +1,10 @@
-sudo apt-get install php-pgsql
-
-
-<!DOCTYPE html>
-
-<html>
-
-<body>
-
 <?php
-
-echo "My first PHP script!";
-
-$con=pg_connect("host=dpg-d046ndbuibrs73aq4v60-a dbname=projectdb_75bu user=projectdb password=kcTYffQ7HPvaXSsiFAOPOir52XQ0UOP8");
-
-$sql=pg_query("create table testing(id integer)");
-
-echo " script! Executed";
-
+try {
+    $pdo = new PDO("pgsql:host=dpg-d046ndbuibrs73aq4v60-a;port=5432;dbname=projectdb_75bu;user=projectdb;password=kcTYffQ7HPvaXSsiFAOPOir52XQ0UOP8");
+    // use $pdo to query the database
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+  echo 'aa';
+}
+  echo 'ee';
 ?>
-
-</body>
-
-</html>
