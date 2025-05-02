@@ -1,16 +1,7 @@
-FROM php:8.2-cli
+FROM php:8.2-apache
 
-# Install mysqli extension
-RUN docker-php-ext-install mysqli
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    && docker-php-ext-install pdo pdo_pgsql
 
-# Set working directory
-WORKDIR /var/www/html
-
-# Copy all project files
-COPY . .
-
-# Expose the port
-EXPOSE 10000
-
-# Start the PHP built-in server
-CMD ["php", "-S", "0.0.0.0:10000", "-t", "."]
+COPY . /var/www/html/
