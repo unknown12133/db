@@ -17,5 +17,7 @@ $sql=("CREATE TABLE aaa (
     TIME TIME NOT NULL DEFAULT CURRENT_TIME,
     PRIMARY KEY (SNO)"
 );
+$resul = $con-> query($sql);
+echo $resul;
 
 ?>
