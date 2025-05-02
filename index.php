@@ -1,3 +1,6 @@
+sudo apt-get install php-pgsql
+
+
 <!DOCTYPE html>
 
 <html>
